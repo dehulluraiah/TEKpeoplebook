@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse" style="border-radius:0px">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="padding: 4px 4px;" href="#"><img src="../app/assets/images/logo.jpg" width="130px" height="42px" /></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sisir Das</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12 text-center">
+    <div class="form-group">
+    <input [(ngModel)]="searchText" style="width:400px;" placeholder="search Employee" class="form-control">
+    </div>
+</div>
+<!--<div class="col-md-12">
+    <p>{{data.length}} results found.</p>
+</div>-->
+<div *ngFor="let c of employees | filter : searchText" class="col-md-2">
+      <ul class="list-group">
+          <li class="list-group-item">
+              <img *ngIf = "c.gender == 'male'" src="../app/assets/images/male-icon.jpg" width="100%" height="" />
+              <img *ngIf = "c.gender == 'female'" src="../app/assets/images/female-icon.png" width="100%" height="" />
+          </li>
+          <li class="list-group-item">
+                {{c.employeeName}}
+          </li>
+          <li class="list-group-item">
+                {{c.employeeID}}
+          </li>
+          <li class="list-group-item">
+                {{c.mobileNo}}
+          </li>
+          <li class="list-group-item">
+                {{c.designation}}
+          </li>
+          <li class="list-group-item">
+                {{c.emailID}}
+          </li> 
+      </ul>
+  </div>
+  
+</div>
+
+<div *ngFor ="let e of data | filter : searchText" class="col-md-2">
+ <ul class="list-group">
+   <li class="list-group-item"><img src="../app/assets/images/male-icon.jpg" width="100%" height="" /></li>
+   <li class="list-group-item">{{e.name}}</li>
+   <li class="list-group-item">{{e.email}}</li>
+   <li class="list-group-item">{{e.phone}}</li>
+</ul>
+</div>
+</div>
